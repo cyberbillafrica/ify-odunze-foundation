@@ -1,10 +1,27 @@
 /********** Template CSS **********/
 :root {
-    --bs-primary: #00A550;
-    --bs-primary: #0099FF;
-    --bs-tertiary: #797E88;
+  --bs-primary: #00A550 !important;
+  --bs-secondary: #0099FF !important;
+  --bs-tertiary: #797E88;
 }
 
+
+:root {
+  --bs-primary: #00A550;
+  --bs-secondary: #0099FF;
+--bs-tertiary: #797E88;
+}
+/*.btn-primary, .bg-primary, .text-primary { 
+
+  /*color: #fff !important; /* Ensure text is readable *
+  background-color: #00A550 !important;
+  border-color: #00A550 !important;
+}
+.btn-secondary, .bg-secondary, .text-secondary {
+  color: #fff !important; /* Ensure text is readable *
+  background-color: #0099FF !important;
+  border-color: #0099FF !important;
+}*/
 .back-to-top {
     position: fixed;
     display: none;
