@@ -5,23 +5,77 @@
   --bs-tertiary: #797E88;
 }
 
-
 :root {
+  --bs-custom-primary: #A5D6A7;;
+  --bs-custom-accent: #0288D1;;;
+}
+
+.btn-primary, .bg-primary {
+  background-color: var(--bs-custom-primary) !important;
+  border-color: var(--bs-custom-primary) !important;
+  color: #fff !important; /* White text for readability */
+}
+.btn-primary:hover {
+  background-color: darken(var(--bs-custom-primary), 10%) !important; /* Optional: darken on hover if using SCSS */
+}
+
+.text-accent, a {
+  color: var(--bs-custom-accent) !important;
+}
+a:hover {
+  color: darken(var(--bs-custom-accent), 10%) !important; /* Optional hover effect */
+}
+
+/*:root {
   --bs-primary: #00A550;
   --bs-secondary: #0099FF;
 --bs-tertiary: #797E88;
 }
-/*.btn-primary, .bg-primary, .text-primary { 
+.btn-primary, .bg-primary, .text-primary { 
 
-  /*color: #fff !important; /* Ensure text is readable *
+  color: #fff !important; /* Ensure text is readable*
   background-color: #00A550 !important;
   border-color: #00A550 !important;
 }
 .btn-secondary, .bg-secondary, .text-secondary {
-  color: #fff !important; /* Ensure text is readable *
+  color: #fff !important; /* Ensure text is readable*
   background-color: #0099FF !important;
   border-color: #0099FF !important;
-}*/
+}
+*/
+
+/* Sky Blue Shades */
+.bg-sky-blue-light {
+    background-color: #87CEEB; /* Light sky blue */
+}
+.bg-sky-blue {
+    background-color: #4FC3F7; /* Medium sky blue (similar to Bootstrap primary) */
+}
+.bg-sky-blue-dark {
+    background-color: #0288D1; /* Darker sky blue */
+}
+.bg-sky-blue-pale {
+    background-color: #B3E5FC; /* Very light/pale sky blue */
+}
+
+/* Green Shades */
+.bg-green-light {
+    background-color: #A5D6A7; /* Light green */
+}
+.bg-green {
+    background-color: #4CAF50; /* Medium green */
+}
+.bg-green-dark {
+    background-color: #2E7D32; /* Dark green */
+}
+.bg-green-pale {
+    background-color: #C8E6C9; /* Very light/pale green */
+}
+
+/* Padding for consistency with your example */
+.p-3 {
+    padding: 1rem;
+}
 .back-to-top {
     position: fixed;
     display: none;
