@@ -78,8 +78,40 @@ a:hover {
     font-weight: 400 !important;
 }
 
-
+/* Spinner Container */
 #spinner {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-out, visibility 0s linear 0.5s;
+  z-index: 99999;
+}
+
+#spinner.show {
+  transition: opacity 0.5s ease-out, visibility 0s linear 0s;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Slide-up and fade-in animation */
+@keyframes slideUpFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Logo Styling and Animation */
+.logo-spinner {
+  width: 120px;
+  height: auto;
+  animation: slideUpFadeIn 1.2s ease-out;
+}
+
+/*#spinner {
   opacity: 0;
   visibility: hidden;
   transition: opacity .5s ease-out, visibility 0s linear .5s;
