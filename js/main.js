@@ -1,3 +1,79 @@
+
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const donationFormContainer = document.getElementById('donationFormContainer');
+        const form = document.getElementById('donationForm');
+        const amountButtons = document.querySelectorAll('.amount-button');
+        const customAmountBtn = document.getElementById('customAmountBtn');
+        const customAmountContainer = document.getElementById('customAmountContainer');
+        const customAmountInput = document.getElementById('customAmount');
+        const accountDetails = document.getElementById('accountDetails');
+        const paidButton = document.getElementById('paidButton');
+        const uploadSection = document.getElementById('uploadSection');
+        const paymentProofForm = document.getElementById('paymentProofForm');
+  
+        let selectedAmount = null;
+  
+        amountButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            amountButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            selectedAmount = this.dataset.amount;
+            customAmountContainer.style.display = 'none';
+            customAmountInput.required = false;
+          });
+        });
+  
+        customAmountBtn.addEventListener('click', function() {
+          amountButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          customAmountContainer.style.display = 'block';
+          customAmountInput.required = true;
+          selectedAmount = 'custom';
+        });
+  
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          let donationAmount;
+          if (selectedAmount === 'custom') {
+            donationAmount = customAmountInput.value;
+          } else {
+            donationAmount = selectedAmount;
+          }
+  
+          if (donationAmount) {
+            donationFormContainer.style.display = 'none';
+            accountDetails.style.display = 'block';
+          } else {
+            alert('Please select or enter a donation amount.');
+          }
+        });
+  
+        paidButton.addEventListener('click', function() {
+          accountDetails.style.display = 'none';
+          uploadSection.style.display = 'block';
+  
+          // Pre-fill donor details
+          document.getElementById('donorName').value = document.getElementById('name').value;
+          document.getElementById('donorEmail').value = document.getElementById('email').value;
+        });
+  
+        paymentProofForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const fileInput = document.getElementById('paymentProof');
+          if (fileInput.files.length > 0) {
+            alert('Thank you for your donation! Your payment proof and details have been submitted. We will contact you');
+            // Here you would typically send the form data to a server
+          } else {
+            alert('Please select a file to upload.');
+          }
+        });
+      });
+
+
+
+
 (function ($) {
     "use strict";
 
