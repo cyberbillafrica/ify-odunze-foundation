@@ -26,24 +26,6 @@ a:hover {
   color: darken(var(--bs-custom-accent), 10%) !important; /* Optional hover effect */
 }
 
-/*:root {
-  --bs-primary: #00A550;
-  --bs-secondary: #0099FF;
---bs-tertiary: #797E88;
-}
-.btn-primary, .bg-primary, .text-primary { 
-
-  color: #fff !important; /* Ensure text is readable*
-  background-color: #00A550 !important;
-  border-color: #00A550 !important;
-}
-.btn-secondary, .bg-secondary, .text-secondary {
-  color: #fff !important; /* Ensure text is readable*
-  background-color: #0099FF !important;
-  border-color: #0099FF !important;
-}
-*/
-
 /* Sky Blue Shades */
 .bg-sky-blue-light {
     background-color: #87CEEB; /* Light sky blue */
@@ -97,7 +79,38 @@ a:hover {
 }
 
 
-/*** Spinner ***/
+#spinner {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s ease-out, visibility 0s linear .5s;
+  z-index: 99999;
+}
+
+#spinner.show {
+  transition: opacity .5s ease-out, visibility 0s linear 0s;
+  visibility: visible;
+  opacity: 1;
+}
+
+.logo-spinner {
+  width: 100px;
+  height: auto;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.logo-spinner {
+  width: 100px;
+  height: auto;
+  animation: pulse 2s infinite;
+}
+
+
+/*** Spinner ***
 #spinner {
     opacity: 0;
     visibility: hidden;
