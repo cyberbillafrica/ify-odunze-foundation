@@ -14,6 +14,8 @@
 
   let selectedAmount = null;
   let finalAmount = null;
+  let donorName = "";
+  let donorEmail = "";
 
   // Handle preset amounts
   amountButtons.forEach(button => {
@@ -39,6 +41,10 @@
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     
+    // Save donor details **before hiding form**
+    donorName = document.getElementById('name').value.trim() || "Anonymous Donor";
+    donorEmail = document.getElementById('email').value.trim();
+
     if (selectedAmount === 'custom') {
       finalAmount = customAmountInput.value.trim();
       if (!finalAmount || isNaN(finalAmount) || finalAmount <= 0) {
@@ -58,14 +64,11 @@
     accountDetails.style.display = 'none';
     uploadSection.style.display = 'block';
 
-    // Grab donor details
-    const donorName = document.getElementById('name').value || "Anonymous Donor";
-
-    // WhatsApp message with name + amount
-    const message = `Hello, I just made a donation.\n\nName: ${donorName}\nAmount: ₦${finalAmount}\n\nI will now send my proof of payment.`;
+    // WhatsApp message with stored donorName + amount
+    const message = `Hello, I just made a donation.\n\nName: ${donorName}\nAmount: ₦${Number(finalAmount).toLocaleString()}\n\nI will now send my proof of payment.`;
 
     // Replace with your Foundation WhatsApp number (include country code, no +)
-    const whatsappNumber = "2348022987177";
+    const whatsappNumber = "2348022987171";
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
     whatsappBtn.setAttribute('href', whatsappLink);
