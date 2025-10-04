@@ -68,7 +68,7 @@
     const message = `Hello, I just made a donation.\n\nName: ${donorName}\nAmount: ₦${Number(finalAmount).toLocaleString()}\n\nI will now send my proof of payment.`;
 
     // Replace with your Foundation WhatsApp number (include country code, no +)
-    const whatsappNumber = "2348022987171";
+    const whatsappNumber = "2348022987177";
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
     whatsappBtn.setAttribute('href', whatsappLink);
