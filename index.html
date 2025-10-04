@@ -699,19 +699,20 @@
                             
                             <label>Donation Amount:</label>
                             <div class="amount-buttons text-primary">
-                              <button type="button" class="amount-button" data-amount="10">N10,000</button>
-                              <button type="button" class="amount-button" data-amount="10">N20,000</button>
-                              <button type="button" class="amount-button" data-amount="25">N50,000</button>
-                              <button type="button" class="amount-button" data-amount="50">N100,000</button>
-                              <button type="button" class="amount-button" data-amount="100">N500,000</button>
-                              <button type="button" class="amount-button" data-amount="100">N1,000,000</button>
-                             <button type="button" class="amount-button" id="customAmountBtn">Custom</button>
+                            <button type="button" class="amount-button" data-amount="10,000">N10,000</button>
+                            <button type="button" class="amount-button" data-amount="20000">N20,000</button>
+                            <button type="button" class="amount-button" data-amount="50000">N50,000</button>
+                            <button type="button" class="amount-button" data-amount="100000">N100,000</button>
+                            <button type="button" class="amount-button" data-amount="500000">N500,000</button>
+                            <button type="button" class="amount-button" data-amount="1000000">N1,000,000</button>
+                            <button type="button" class="amount-button" id="customAmountBtn">Custom</button>
                             </div>
-                            
-                            <div id="customAmountContainer">
-                              <label for="customAmount">Enter custom amount:</label>
-                              <input type="number" id="customAmount" name="customAmount" min="1" step="1">
+
+                            <div id="customAmountContainer" style="display:none;">
+                            <label for="customAmount">Enter custom amount:</label>
+                            <input type="number" id="customAmount" name="customAmount" min="1" step="1">
                             </div>
+
                             
                             <button type="submit">Donate</button>
                           </form>
