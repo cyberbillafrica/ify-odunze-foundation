@@ -522,7 +522,7 @@ a:hover {
     position: relative;
 }
 
-.about-img::before,
+/*.about-img::before,
 .about-img::after {
     position: absolute;
     content: "";
