@@ -58,13 +58,14 @@
     accountDetails.style.display = 'none';
     uploadSection.style.display = 'block';
 
-    // Prepare WhatsApp message
-    const donorName = document.getElementById('name').value;
-    const donorEmail = document.getElementById('email').value;
-    const message = `Hello, I just made a donation.\n\nName: ${donorName}\nEmail: ${donorEmail}\nAmount: ₦${finalAmount}\n\nI will now send my proof of payment.`;
+    // Grab donor details
+    const donorName = document.getElementById('name').value || "Anonymous Donor";
+
+    // WhatsApp message with name + amount
+    const message = `Hello, I just made a donation.\n\nName: ${donorName}\nAmount: ₦${finalAmount}\n\nI will now send my proof of payment.`;
 
     // Replace with your Foundation WhatsApp number (include country code, no +)
-    const whatsappNumber = "2348012345678"; 
+    const whatsappNumber = "2348022987177";
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
     whatsappBtn.setAttribute('href', whatsappLink);
