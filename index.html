@@ -289,42 +289,6 @@
 </div>
 <!-- About End -->
 
-
-/* Ensure the image container matches the height of the text container */
-.about-img {
-    height: 100%; /* Match the height of the parent column */
-    position: relative;
-    display: flex;
-    align-items: stretch;
-    overflow: hidden; /* Hide any overflow from the image */
-}
-
-.about-img img {
-    width: 100%;
-    height: 100%; /* Force the image to fit the container height */
-    object-fit: cover; /* Crop to fit while maintaining aspect ratio */
-    object-position: center; /* Center the image to avoid awkward cropping */
-}
-
-/* Ensure the row enforces equal height */
-.row.align-items-stretch {
-    display: flex;
-    align-items: stretch;
-}
-
-/* Adjust for smaller screens */
-@media (max-width: 991.98px) {
-    .about-img {
-        height: auto; /* Allow natural scaling on mobile */
-    }
-    
-    .about-img img {
-        height: auto; /* Reset height for mobile */
-        max-height: none; /* Remove max-height constraint */
-    }
-}
-</style>
-
     <!-- Service Start -->
     <div class="container-fluid py-5">
         <div class="container">
