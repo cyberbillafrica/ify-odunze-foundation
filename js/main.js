@@ -1,6 +1,4 @@
-
-    
-   document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
   const donationFormContainer = document.getElementById('donationFormContainer');
   const form = document.getElementById('donationForm');
   const amountButtons = document.querySelectorAll('.amount-button');
@@ -14,8 +12,7 @@
 
   let selectedAmount = null;
   let finalAmount = null;
-  let donorName = "";
-  let donorEmail = "";
+  let donorName = ""; // Store donor name globally
 
   // Handle preset amounts
   amountButtons.forEach(button => {
@@ -25,6 +22,8 @@
       selectedAmount = this.dataset.amount;
       customAmountContainer.style.display = 'none';
       customAmountInput.required = false;
+
+      console.log("Selected preset amount:", selectedAmount);
     });
   });
 
@@ -35,26 +34,41 @@
     customAmountContainer.style.display = 'block';
     customAmountInput.required = true;
     selectedAmount = 'custom';
+
+    console.log("Custom amount selected.");
   });
 
   // Handle donation form submit
   form.addEventListener('submit', function(e) {
     e.preventDefault();
-    
-    // Save donor details **before hiding form**
-    donorName = document.getElementById('name').value.trim() || "Anonymous Donor";
-    donorEmail = document.getElementById('email').value.trim();
 
+    // Grab and store donor name
+    const nameInput = document.getElementById('name');
+    if (!nameInput) {
+      console.error("Name input not found in the DOM!");
+      return;
+    }
+
+    donorName = nameInput.value.trim() || "Anonymous Donor";
+    console.log("Donor name stored:", donorName);
+
+    // Get and validate amount
     if (selectedAmount === 'custom') {
       finalAmount = customAmountInput.value.trim();
       if (!finalAmount || isNaN(finalAmount) || finalAmount <= 0) {
         alert('Please enter a valid custom donation amount.');
         return;
       }
-    } else {
+    } else if (selectedAmount) {
       finalAmount = selectedAmount;
+    } else {
+      alert('Please select or enter a donation amount.');
+      return;
     }
 
+    console.log("Final donation amount:", finalAmount);
+
+    // Show next section
     donationFormContainer.style.display = 'none';
     accountDetails.style.display = 'block';
   });
@@ -64,16 +78,20 @@
     accountDetails.style.display = 'none';
     uploadSection.style.display = 'block';
 
-    // WhatsApp message with stored donorName + amount
-    const message = `Hello, I just made a donation.\n\nName: ${donorName}\nAmount: ₦${Number(finalAmount).toLocaleString()}\n\nI will now send my proof of payment.`;
+    // Use stored donor name
+    console.log("Using stored donorName:", donorName);
 
-    // Replace with your Foundation WhatsApp number (include country code, no +)
-    const whatsappNumber = "2348022987177";
+    const message = `Hello, I just made a donation.\n\nName: ${donorName}\nAmount: ₦${finalAmount}\n\nI will now send my proof of payment.`;
+    console.log("WhatsApp message:", message);
+
+    const whatsappNumber = "2348022897177";
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
     whatsappBtn.setAttribute('href', whatsappLink);
   });
 });
+
+
 
 
 
