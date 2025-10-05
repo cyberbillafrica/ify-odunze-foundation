@@ -2,17 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bouncing Words with Sound & Scroll</title>
+  <title>Bouncing Values One by One</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
       padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .line {
-      font-size: 4em;
-      margin: 50px 0;
+      font-size: 2em;
+      margin: 40px 0;
       padding: 20px;
       background: skyblue;
       border-radius: 8px;
@@ -20,7 +23,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      opacity: 0; /* Initially hidden */
+      opacity: 0;
     }
 
     .word {
@@ -54,7 +57,7 @@
 
   <div id="container"></div>
 
-  <!-- Sound -->
+  <!-- Bounce sound -->
   <audio id="popSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_dba2647c1d.mp3" preload="auto"></audio>
 
   <script>
@@ -69,19 +72,38 @@
     const container = document.getElementById("container");
     const popSound = document.getElementById("popSound");
 
-    // Create line divs
-    const lineElements = lines.map((text, lineIndex) => {
+    // Function to animate a single line's words
+    function animateLine(lineElement, delayBetweenWords = 200) {
+      return new Promise(resolve => {
+        const words = lineElement.querySelectorAll(".word");
+        words.forEach((word, i) => {
+          setTimeout(() => {
+            word.style.opacity = 1;
+            word.style.animation = "bounceIn 0.8s ease forwards";
+
+            // Play sound
+            const sound = popSound.cloneNode();
+            sound.play();
+
+            // If last word, resolve
+            if (i === words.length - 1) {
+              setTimeout(resolve, 800); // wait for bounce animation to finish
+            }
+          }, i * delayBetweenWords);
+        });
+      });
+    }
+
+    // Step 1: Create line elements
+    const lineElements = lines.map(text => {
       const lineDiv = document.createElement("div");
       lineDiv.className = "line";
 
       const words = text.split(" ");
-      words.forEach((word, i) => {
+      words.forEach(word => {
         const span = document.createElement("span");
         span.className = "word";
         span.textContent = word;
-
-        // Don't animate right away — will add later
-        span.style.animationDelay = `${i * 0.2}s`;
         lineDiv.appendChild(span);
       });
 
@@ -89,37 +111,19 @@
       return lineDiv;
     });
 
-    // Observer to trigger animation on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const line = entry.target;
-          line.style.opacity = 1; // Show the line
+    // Step 2: Animate one line at a time
+    async function animateAllLines() {
+      for (const line of lineElements) {
+        line.style.opacity = 1; // Make the line container visible
+        await animateLine(line);
+      }
+    }
 
-          const words = line.querySelectorAll(".word");
-
-          words.forEach((word, i) => {
-            setTimeout(() => {
-              word.style.opacity = 1;
-              word.style.animation = "bounceIn 0.8s ease forwards";
-
-              // Play sound (clone to allow overlapping)
-              const sound = popSound.cloneNode();
-              sound.play();
-            }, i * 200); // Stagger based on index
-          });
-
-          observer.unobserve(line); // Run once per line
-        }
-      });
-    }, {
-      threshold: 0.4
-    });
-
-    // Observe each line
-    lineElements.forEach(line => observer.observe(line));
+    // Start animation after short delay
+    setTimeout(() => {
+      animateAllLines();
+    }, 500);
   </script>
 
 </body>
 </html>
-
