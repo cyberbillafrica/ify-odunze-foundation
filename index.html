@@ -119,7 +119,7 @@
                     <div class="navbar-nav me-auto">
                         <a href="index.html" class="nav-item nav-link active">Home</a>
                         <a href="about.html" class="nav-item nav-link">About Us</a>
-                        <a href="courses.html" class="nav-item nav-link">Courses</a>
+                        <a href="causes.html" class="nav-item nav-link">Our Causes</a>
                          <a href="volunteer.html" class="nav-item nav-link">Volunteer's Hub</a>
                         <a href="donation.html" class="nav-item nav-link">Donation</a>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
@@ -137,13 +137,13 @@
 
 
     <!-- Carousel Start -->
-    <div class="container-fluid p-0 wow fadeIn" data-wow-delay="0.1s">
-        <div class="owl-carousel header-carousel py-5">
-            <div class="container py-5">
+    <div class="container-fluid p-0 wow fadeIn" data-wow-delay="0.2s">
+        <div class="owl-carousel header-carousel py-3">
+            <div class="container py-3">
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6">
                         <div class="carousel-text">
-                            <h1 class="display-1 text-uppercase mb-3">Together for a Better Tomorrow</h1>
+                            <h3 class="display-1 text-uppercase mb-3">Together for a Better Tomorrow</h3>
                             <p class="fs-5 mb-5">We believe in creating opportunities and empowering communities through education, healthcare, and sustainable development.</p>
                             <div class="d-flex">
                                 <a class="btn btn-primary py-3 px-4 me-3" href="donation.html">Donate Now</a>
@@ -158,11 +158,11 @@
                     </div>
                 </div>
             </div>
-            <div class="container py-5">
+            <div class="container py-3">
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6">
                         <div class="carousel-text">
-                            <h1 class="display-1 text-uppercase mb-3">Together, We Can End Out of School Scourge</h1>
+                            <h3 class="display-1 text-uppercase mb-3">Let's End the Out of School Crisis</h3>
                             <p class="fs-5 mb-5">No child should be denied basic education. Your support helps us bring smiles, hope, and a brighter future to those in need.</p>
                             <div class="d-flex mt-4">
                                 <a class="btn btn-primary py-3 px-4 me-3" href="donation.html">Donate Now</a>
@@ -217,14 +217,14 @@
                         </div>
                         <div id="tab-content-3" class="container tab-pane fade">
                             <div class="mb-3 text-align">
-                                <ul>
-                                    <li><i class="fa fa-check text-primary me-2 pulse-icon"></i>Compassion: Acting with empathy and care to support the needs of children and communities.</li>
-                                    <li><i class="fa fa-check text-primary me-2 pulse-icon"></i>Equity: Ensuring every child, regardless of socio-economic background, has access to quality education.</li>
-                                    <li><i class="fa fa-check text-primary me-2 pulse-icon"></i>Community: Engaging and collaborating with local communities to create sustainable, grassroots impact.</li>
-                                    <li><i class="fa fa-check text-primary me-2 pulse-icon"></i>Impact: Committing to tangible, lasting change through strategic and scalable initiatives.</li>
-                                    <li><i class="fa fa-check text-primary me-2 pulse-icon"></i>Hope: Inspiring optimism and opportunity for a brighter future for the next generation.</li>
-                                </ul>
-                            </div>
+                             <ul>
+                            <li><b>Compassion</b>: Acting with empathy and care to support the needs of children and communities.</li>
+                            <li><b>Equity</b>: Ensuring every child, regardless of socio-economic background, has access to quality education.</li>
+                            <li><b>Community</b>: Engaging and collaborating with local communities to create sustainable, grassroots impact.</li>
+                            <li><b>Impact</b>: Committing to tangible, lasting change through strategic and scalable initiatives.</li>
+                            <li><b>Hope</b>: Inspiring optimism and opportunity for a brighter future for the next generation.</li>
+                            </ul>
+                             </div>
                         </div>
                     </div>
                 </div>
@@ -256,24 +256,13 @@
 /* Fade-In Animation for Tab Content */
 .tab-pane {
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 .tab-pane.active.show {
     opacity: 1;
 }
 
-/* Pulse Effect for Core Values Icons */
-.pulse-icon {
-    transition: transform 0.3s ease;
-}
-.pulse-icon:hover {
-    animation: pulse 1s infinite;
-}
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
+
 </style>
 
 <!-- JavaScript for Tab Functionality with Fade-In Animation -->
@@ -307,6 +296,41 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 <hr>
+
+   <!-- About Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row g-5 align-items-stretch">
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.2s">
+                <div class="about-img">
+                    <img class="img-fluid" src="img/kuje.jpg" alt="Image">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <p class="section-title bg-white text-start text-primary pe-3">About Us</p>
+                <h1 class="display-6 mb-4 wow fadeIn" data-wow-delay="0.2s">Join Hands, Change the World</h1>
+                <p class="mb-4 wow fadeIn" data-wow-delay="0.3s">The Ify Odunze Foundation (IOF) is a nonprofit organization dedicated to breaking down barriers to education for children in rural Nigerian communities. Founded by Ifeoma Odunze, a passionate psychologist and advocate for social change, IOF is driven by the belief that every child deserves access to quality primary education, regardless of their socio-economic background. With a mission to empower young minds and foster sustainable community development, the foundation focuses on providing essential resources, infrastructure improvements, and opportunities that enable children to thrive academically and beyond.IOF’s work began with a transformative initiative at Kuje Model Primary School in Abuja, where the foundation sponsored school fees, uniforms, books, and critical upgrades like electricity and water systems for 10 deserving students. This project marked the cornerstone of IOF’s commitment to creating tangible, lasting impact in underserved areas. By addressing both immediate needs—such as learning materials—and systemic challenges, like inadequate school facilities, IOF aims to build a foundation for academic success and personal growth.Rooted in values of compassion, equity, and community, the Ify Odunze Foundation combines grassroots action with a strategic vision for scalability  <a class="btn btn-secondary text-primary px-4" href="about.html" style="font-style: italic;">Read More</a>
+                   </p>
+                   <div class="row g-4 pt-2">
+                   
+                     <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="h-100 bg-primary p-4 text-center">
+                            <p class="fs-5 text-dark">Through your donations, we spread kindness and support to children and families.</p>
+                            <a class="btn btn-secondary py-2 px-4 text-white" href="donation.html">Donate Now</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="h-100 bg-secondary p-4 text-center">
+                           <p class="fs-5 text-light">Through your volunteering, we spread kindness and support to underserved children and communities.</p>
+                            <a class="btn btn-primary py-2 px-4 text-dark" href="volunteer.html">Volunteer Now</a>     </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
 <div class="container-fluid bg-primary mb-5 position-relative wow fadeIn" data-wow-delay="0.1s">
     <!-- Scroll Down Indicator (slightly inset from right, full height) -->
     <div class="d-none d-lg-flex position-absolute top-0 h-100 bg-secondary align-items-center justify-content-center"
@@ -378,45 +402,7 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
     </div>
 </div>
-
-
-   <!-- About Start -->
-<div class="container-fluid py-5">
-    <div class="container">
-        <div class="row g-5 align-items-stretch">
-            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.2s">
-                <div class="about-img">
-                    <img class="img-fluid" src="img/kuje.jpg" alt="Image">
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <p class="section-title bg-white text-start text-primary pe-3">About Us</p>
-                <h1 class="display-6 mb-4 wow fadeIn" data-wow-delay="0.2s">Join Hands, Change the World</h1>
-                <p class="mb-4 wow fadeIn" data-wow-delay="0.3s">The Ify Odunze Foundation (IOF) is a nonprofit organization dedicated to breaking down barriers to education for children in rural Nigerian communities. Founded by Ifeoma Odunze, a passionate psychologist and advocate for social change, IOF is driven by the belief that every child deserves access to quality primary education, regardless of their socio-economic background. With a mission to empower young minds and foster sustainable community development, the foundation focuses on providing essential resources, infrastructure improvements, and opportunities that enable children to thrive academically and beyond.IOF’s work began with a transformative initiative at Kuje Model Primary School in Abuja, where the foundation sponsored school fees, uniforms, books, and critical upgrades like electricity and water systems for 10 deserving students. This project marked the cornerstone of IOF’s commitment to creating tangible, lasting impact in underserved areas. By addressing both immediate needs—such as learning materials—and systemic challenges, like inadequate school facilities, IOF aims to build a foundation for academic success and personal growth.Rooted in values of compassion, equity, and community, the Ify Odunze Foundation combines grassroots action with a strategic vision for scalability  <a class="btn btn-secondary text-primary px-4" href="about.html" style="font-style: italic;">Read More</a>
-                   </p>
-                   <div class="row g-4 pt-2">
-                    <div class="col-sm-6 wow fadeIn" data-wow-delay="0.4s">
-                        <div class="h-100">
-                            <h3>Our Mission</h3>
-                           <hr>
-                            <p>Our mission is to uplift underprivileged communities by providing resources, education, and tools for growth.</p>
-                            <p class="text-dark"><i class="fa fa-check text-primary me-2"></i>No one should go to bed hungry.</p>
-                            <p class="text-dark"><i class="fa fa-check text-primary me-2"></i>We spread kindness and support.</p>
-                            <p class="text-dark mb-0"><i class="fa fa-check text-primary me-2"></i>We can change someone’s life.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="h-100 bg-primary p-4 text-center">
-                            <p class="fs-5 text-dark">Through your donations, we spread kindness and support to children and families.</p>
-                            <a class="btn btn-secondary py-2 px-4 text-white" href="">Donate Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- About End -->
+<!-- Video Modal End -->
 
     <!-- Service Start -->
     <div class="container-fluid py-5">
@@ -781,7 +767,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <div class="col-lg-5 donate-form bg-primary py-5 text-center wow fadeIn" data-wow-delay="0.5s">
                     <div class="h-100 p-5">
-                        <h1 class="text-secondary">Donate to Our Courses</h1>
+                        <h1 class="text-secondary">Donate to Our Causes</h1>
                         <div id="donationFormContainer">
                           <form id="donationForm">
                            
