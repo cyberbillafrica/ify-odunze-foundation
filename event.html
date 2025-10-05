@@ -26,10 +26,11 @@
     }
 
     .word {
-      margin: 0 5px;
+      margin: 0 6px;
       opacity: 0;
       transform: translateY(50px);
       animation: bounceIn 0.8s ease forwards;
+      display: inline-block;
     }
 
     @keyframes bounceIn {
@@ -53,40 +54,35 @@
 </head>
 <body>
 
-  <div class="line">
-    <span class="word" style="animation-delay: 0s;">Compassion:</span>
-    <span class="word" style="animation-delay: 0.2s;">Acting</span>
-    <span class="word" style="animation-delay: 0.4s;">with</span>
-    <span class="word" style="animation-delay: 0.6s;">empathy</span>
-    <span class="word" style="animation-delay: 0.8s;">and</span>
-    <span class="word" style="animation-delay: 1s;">care</span>
-    <span class="word" style="animation-delay: 1.2s;">to</span>
-    <span class="word" style="animation-delay: 1.4s;">support</span>
-    <span class="word" style="animation-delay: 1.6s;">the</span>
-    <span class="word" style="animation-delay: 1.8s;">needs</span>
-    <span class="word" style="animation-delay: 2s;">of</span>
-    <span class="word" style="animation-delay: 2.2s;">children</span>
-    <span class="word" style="animation-delay: 2.4s;">and</span>
-    <span class="word" style="animation-delay: 2.6s;">communities.</span>
-  </div>
+  <div id="container"></div>
 
-  <div class="line">
-    <span class="word" style="animation-delay: 0s;">Equity:</span>
-    <span class="word" style="animation-delay: 0.2s;">Ensuring</span>
-    <span class="word" style="animation-delay: 0.4s;">every</span>
-    <span class="word" style="animation-delay: 0.6s;">child,</span>
-    <span class="word" style="animation-delay: 0.8s;">regardless</span>
-    <span class="word" style="animation-delay: 1s;">of</span>
-    <span class="word" style="animation-delay: 1.2s;">socio-economic</span>
-    <span class="word" style="animation-delay: 1.4s;">background,</span>
-    <span class="word" style="animation-delay: 1.6s;">has</span>
-    <span class="word" style="animation-delay: 1.8s;">access</span>
-    <span class="word" style="animation-delay: 2s;">to</span>
-    <span class="word" style="animation-delay: 2.2s;">quality</span>
-    <span class="word" style="animation-delay: 2.4s;">education.</span>
-  </div>
+  <script>
+    const lines = [
+      "Compassion: Acting with empathy and care to support the needs of children and communities.",
+      "Equity: Ensuring every child, regardless of socio-economic background, has access to quality education.",
+      "Community: Engaging and collaborating with local communities to create sustainable, grassroots impact.",
+      "Impact: Committing to tangible, lasting change through strategic and scalable initiatives.",
+      "Hope: Inspiring optimism and opportunity for a brighter future for the next generation."
+    ];
 
-  <!-- Repeat for the remaining lines -->
+    const container = document.getElementById("container");
+
+    lines.forEach((text, lineIndex) => {
+      const lineDiv = document.createElement("div");
+      lineDiv.className = "line";
+
+      const words = text.split(" ");
+      words.forEach((word, i) => {
+        const span = document.createElement("span");
+        span.className = "word";
+        span.textContent = word;
+        span.style.animationDelay = `${i * 0.2}s`;
+        lineDiv.appendChild(span);
+      });
+
+      container.appendChild(lineDiv);
+    });
+  </script>
 
 </body>
 </html>
