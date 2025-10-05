@@ -2,20 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bouncing Words</title>
+  <title>Bouncing Words with Sound & Scroll</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
       padding: 50px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
     .line {
       font-size: 2em;
-      margin: 20px 0;
+      margin: 50px 0;
       padding: 20px;
       background: skyblue;
       border-radius: 8px;
@@ -23,6 +20,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      opacity: 0; /* Initially hidden */
     }
 
     .word {
@@ -56,6 +54,9 @@
 
   <div id="container"></div>
 
+  <!-- Sound -->
+  <audio id="popSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_dba2647c1d.mp3" preload="auto"></audio>
+
   <script>
     const lines = [
       "Compassion: Acting with empathy and care to support the needs of children and communities.",
@@ -66,8 +67,10 @@
     ];
 
     const container = document.getElementById("container");
+    const popSound = document.getElementById("popSound");
 
-    lines.forEach((text, lineIndex) => {
+    // Create line divs
+    const lineElements = lines.map((text, lineIndex) => {
       const lineDiv = document.createElement("div");
       lineDiv.className = "line";
 
@@ -76,13 +79,47 @@
         const span = document.createElement("span");
         span.className = "word";
         span.textContent = word;
+
+        // Don't animate right away — will add later
         span.style.animationDelay = `${i * 0.2}s`;
         lineDiv.appendChild(span);
       });
 
       container.appendChild(lineDiv);
+      return lineDiv;
     });
+
+    // Observer to trigger animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const line = entry.target;
+          line.style.opacity = 1; // Show the line
+
+          const words = line.querySelectorAll(".word");
+
+          words.forEach((word, i) => {
+            setTimeout(() => {
+              word.style.opacity = 1;
+              word.style.animation = "bounceIn 0.8s ease forwards";
+
+              // Play sound (clone to allow overlapping)
+              const sound = popSound.cloneNode();
+              sound.play();
+            }, i * 200); // Stagger based on index
+          });
+
+          observer.unobserve(line); // Run once per line
+        }
+      });
+    }, {
+      threshold: 0.4
+    });
+
+    // Observe each line
+    lineElements.forEach(line => observer.observe(line));
   </script>
 
 </body>
 </html>
+
