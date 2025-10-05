@@ -14,7 +14,7 @@
     }
 
     .line {
-      font-size: 1.8em;
+      font-size: 3em;
       margin: 20px 0;
       padding: 15px 20px;
       background: #d0ebff;
@@ -44,7 +44,7 @@
   <div id="container"></div>
 
   <!-- Optional typing sound -->
-  <!-- <audio id="typeSound" src="https://cdn.pixabay.com/audio/2022/11/04/audio_2ae3b9dc76.mp3" preload="auto"></audio> -->
+  <audio id="typeSound" src="https://cdn.pixabay.com/audio/2022/11/04/audio_2ae3b9dc76.mp3" preload="auto"></audio>
 
   <script>
     const lines = [
@@ -56,7 +56,7 @@
     ];
 
     const container = document.getElementById("container");
-    // const typeSound = document.getElementById("typeSound");
+    const typeSound = document.getElementById("typeSound");
 
     let currentLine = 0;
 
@@ -81,14 +81,14 @@
             charIndex++;
 
             // Optional typing sound
-            // const sound = typeSound.cloneNode();
-            // sound.play();
+            const sound = typeSound.cloneNode();
+            sound.play();
           } else {
             clearInterval(interval);
             cursor.remove(); // remove blinking cursor
             resolve();
           }
-        }, 30); // typing speed (ms per character)
+        }, 60); // typing speed (ms per character)
       });
     }
 
