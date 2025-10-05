@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bouncing Values</title>
+  <title>Bouncing Words</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -13,19 +13,25 @@
       align-items: center;
     }
 
-    .value {
-      font-size: 4em;
+    .line {
+      font-size: 2em;
       margin: 20px 0;
       padding: 20px;
       background: skyblue;
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      opacity: 0;
-      transform: translateY(50px);
-      animation: bounceIn 2s ease forwards;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    /* Keyframes for bounce */
+    .word {
+      margin: 0 5px;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: bounceIn 0.8s ease forwards;
+    }
+
     @keyframes bounceIn {
       0% {
         opacity: 0;
@@ -43,33 +49,44 @@
         opacity: 1;
       }
     }
-
-    /* Stagger animation delays */
-    .value:nth-child(1) { animation-delay: 0.8s; }
-    .value:nth-child(2) { animation-delay: 1.8s; }
-    .value:nth-child(3) { animation-delay: 2.8s; }
-    .value:nth-child(4) { animation-delay: 3.8s; }
-    .value:nth-child(5) { animation-delay: 4.8s; }
-
   </style>
 </head>
 <body>
 
-  <div class="value">
-    <strong>Compassion:</strong> Acting with empathy and care to support the needs of children and communities.
+  <div class="line">
+    <span class="word" style="animation-delay: 0s;">Compassion:</span>
+    <span class="word" style="animation-delay: 0.2s;">Acting</span>
+    <span class="word" style="animation-delay: 0.4s;">with</span>
+    <span class="word" style="animation-delay: 0.6s;">empathy</span>
+    <span class="word" style="animation-delay: 0.8s;">and</span>
+    <span class="word" style="animation-delay: 1s;">care</span>
+    <span class="word" style="animation-delay: 1.2s;">to</span>
+    <span class="word" style="animation-delay: 1.4s;">support</span>
+    <span class="word" style="animation-delay: 1.6s;">the</span>
+    <span class="word" style="animation-delay: 1.8s;">needs</span>
+    <span class="word" style="animation-delay: 2s;">of</span>
+    <span class="word" style="animation-delay: 2.2s;">children</span>
+    <span class="word" style="animation-delay: 2.4s;">and</span>
+    <span class="word" style="animation-delay: 2.6s;">communities.</span>
   </div>
-  <div class="value">
-    <strong>Equity:</strong> Ensuring every child, regardless of socio-economic background, has access to quality education.
+
+  <div class="line">
+    <span class="word" style="animation-delay: 0s;">Equity:</span>
+    <span class="word" style="animation-delay: 0.2s;">Ensuring</span>
+    <span class="word" style="animation-delay: 0.4s;">every</span>
+    <span class="word" style="animation-delay: 0.6s;">child,</span>
+    <span class="word" style="animation-delay: 0.8s;">regardless</span>
+    <span class="word" style="animation-delay: 1s;">of</span>
+    <span class="word" style="animation-delay: 1.2s;">socio-economic</span>
+    <span class="word" style="animation-delay: 1.4s;">background,</span>
+    <span class="word" style="animation-delay: 1.6s;">has</span>
+    <span class="word" style="animation-delay: 1.8s;">access</span>
+    <span class="word" style="animation-delay: 2s;">to</span>
+    <span class="word" style="animation-delay: 2.2s;">quality</span>
+    <span class="word" style="animation-delay: 2.4s;">education.</span>
   </div>
-  <div class="value">
-    <strong>Community:</strong> Engaging and collaborating with local communities to create sustainable, grassroots impact.
-  </div>
-  <div class="value">
-    <strong>Impact:</strong> Committing to tangible, lasting change through strategic and scalable initiatives.
-  </div>
-  <div class="value">
-    <strong>Hope:</strong> Inspiring optimism and opportunity for a brighter future for the next generation.
-  </div>
+
+  <!-- Repeat for the remaining lines -->
 
 </body>
 </html>
