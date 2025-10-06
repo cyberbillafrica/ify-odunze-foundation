@@ -139,8 +139,10 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container text-center py-4">
-            <h1 class="display-3 animated slideInDown">Donation</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
+        <div class="bg-light border-bottom border-5 border-primary rounded p-4 mb-4">
+           <h1 class="display-3 animated slideInDown">Donation</h1>
+        </div>
+         <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb justify-content-center mb-0">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Pages</a></li>
@@ -354,8 +356,10 @@
     </div>
     <!-- Donation End -->
 
-
-    <!-- Donate Start -->
+<!-- Donate Start -->
+    <div id="donate">
+    </div>  
+    
     <div class="container-fluid donate py-5">
         <div class="container">
             <div class="row g-0">
@@ -367,50 +371,155 @@
                 </div>
                 <div class="col-lg-5 donate-form bg-primary py-5 text-center wow fadeIn" data-wow-delay="0.5s">
                     <div class="h-100 p-5">
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                        <label for="name">Your Name</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                                        <label class="btn btn-light" for="btnradio1">$10</label>
-
-                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                                        <label class="btn btn-light" for="btnradio2">$20</label>
-
-                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                                        <label class="btn btn-light" for="btnradio3">$30</label>
-
-                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-                                        <label class="btn btn-light" for="btnradio4">$40</label>
-
-                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
-                                        <label class="btn btn-light" for="btnradio5">$50</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-secondary py-3 w-100" type="submit">Donate Now</button>
-                                </div>
+                        <h1 class="text-secondary">Donate to Our Causes</h1>
+                        <div id="donationFormContainer">
+                          <form id="donationForm">
+                           
+                            <label for="name">Your Name <span aria-hidden="true" style="color: red;">*</span></label>
+                            <input type="text" id="name" name="name" required aria-required="true" placeholder="Enter your full name">
+                            <label for="email">Your Email <span aria-hidden="true" style="color: red;">*</span></label>
+                            <input type="email" id="email" name="email" required aria-required="true" placeholder="you@example.com">
+                            
+                            <label>Donation Amount:</label>
+                            <div class="amount-buttons text-primary">
+                            <button type="button" class="amount-button" data-amount="10,000">N10,000</button>
+                            <button type="button" class="amount-button" data-amount="20,000">N20,000</button>
+                            <button type="button" class="amount-button" data-amount="50,000">N50,000</button>
+                            <button type="button" class="amount-button" data-amount="100,000">N100,000</button>
+                            <button type="button" class="amount-button" data-amount="500,000">N500,000</button>
+                            <button type="button" class="amount-button" data-amount="1,000,000">N1,000,000</button>
+                            <button type="button" class="amount-button" id="customAmountBtn">Custom</button>
                             </div>
-                        </form>
+
+                            <div id="customAmountContainer" style="display:none;">
+                            <label for="customAmount">Enter custom amount:</label>
+                            <input type="number" id="customAmount" name="customAmount" min="1" step="1">
+                            </div>
+
+                            
+                            <button type="submit">Donate</button>
+                          </form>
+                        </div>
+                        
+                        <div id="accountDetails" style="display:none;">
+                          <h4>Ify-Odunze Foundation Account Details</h4>
+                          <p><strong>Bank Name:</strong> Global Charity Bank</p>
+                          <p><strong>Account Number:</strong> 1234567890</p>
+                          <p><strong>SWIFT Code:</strong> GCBUSXXX</p>
+                          <p><strong>Account Holder:</strong> Ify-Odunze Foundation</p>
+                          <p style="color: #0288D1"><strong>Please use your name as the reference/description when making the transfer.</strong></p>
+                          <button id="paidButton">I have Made the Payment</button>
+                        </div>
+                    
+                        <div id="uploadSection" style="display:none;">
+                        <h3>Confirm Payment on WhatsApp</h3>
+                        <p>Click the button below to send us your details and proof of payment on WhatsApp.</p>
+                        <a id="whatsappBtn" class="btn btn-dark" target="_blank" style="display:inline-flex;align-items:center;gap:8px;font-size:16px;padding:10px 20px;">
+                         <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" 
+                          alt="WhatsApp" style="width:20px;height:20px;filter:invert(1);">
+                             Send on WhatsApp
+                         </a>
+                        </div>
+
+                      </div>
+                    
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    
+    <style>
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  input[type="text"], input[type="number"], input[type="file"], input[type="email"], input[type="tel"] {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+  #accountDetails, #uploadSection {
+    display: none;
+  }
+  .amount-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .amount-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    color: rgb(238, 74, 9);
+    font-weight: bold;
+  }
+  .amount-button:hover, .amount-button.active {
+    background-color: #e0e0e0;
+    border-color: #aaa;
+  }
+  #customAmountContainer {
+    display: none;
+    margin-top: 10px;
+  }
+  #paidButton {
+    background-color: #007bff;
+    margin-top: 10px;
+  }
+  #paidButton:hover {
+    background-color: #0056b3;
+  }
+
+/* Default font size for mobile screens */
+.btn-large-text {
+    font-size: 1.2rem; /* Smaller size for mobile devices */
+}
+
+/* Medium screens (tablets and small desktops) */
+@media (min-width: 768px) {
+    .btn-large-text {
+        font-size: 2rem; /* Medium size */
+    }
+}
+
+/* Large screens (large desktops) */
+@media (min-width: 1200px) {
+    .btn-large-text {
+        font-size: 2.5rem; /* Larger size */
+    }
+}
+
+        
+    </style>
     <!-- Donate End -->
-            <!-- Footer Start -->
+
+
+
+
+    <!-- Footer Start -->
     <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container">
             <div class="row g-5 py-5">
