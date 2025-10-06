@@ -154,8 +154,13 @@
 
 
     <!-- Video Start -->
-    <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container">
+   <div class="container-fluid bg-primary mb-5 position-relative wow fadeIn" data-wow-delay="0.1s">
+    <!-- Scroll Down Indicator (slightly inset from right, full height) -->
+    <div class="d-none d-lg-flex position-absolute top-0 h-100 bg-secondary align-items-center justify-content-center"
+         style="width: 60px; right: 60px; animation: shake 1.5s infinite;">
+        <span class="text-white" style="transform: rotate(-90deg); white-space: nowrap;">Last Campaign</span>
+    </div>
+   <div class="container">
             <div class="row g-0">
                 <div class="col-lg-11">
                     <div class="h-100 py-5 d-flex align-items-center">
@@ -165,12 +170,6 @@
                         </button>
                         <h3 class="ms-5 mb-0">Watch Video of our last Campaign.</h3>
                     </div>
-                </div>
-                <div class="d-none d-lg-block col-lg-1">
-                     <div class="d-none d-lg-flex position-absolute top-0 h-100 bg-secondary align-items-center justify-content-center"style="width: 60px; right: 60px; animation: shake 1.5s infinite;">
-                   <span class="text-white" style="transform: rotate(-90deg); white-space: nowrap;">IOF Last Campaign</span>
-                </div>
-
                 </div>
             </div>
         </div>
@@ -276,7 +275,7 @@
                    <div class="bg-light border-bottom border-5 border-primary rounded p-4 mb-4">
                         <h3 class="display-3 bounce-glow">Do Something Now!</h3>
                     <a class="btn btn-primary py-3 px-4 me-3" href="donation.html">Donate Now</a>
-                    <a class="btn btn-secondary py-3 px-4 text-white" href="volunteer.html">Join Us Now</a>
+                    <a class="btn btn-secondary py-3 px-4 text-white" href="volunteer.html">Volunteer Now</a>
                 </div>
               </div>
             </div>
@@ -303,7 +302,7 @@
   0% {
     text-shadow: 0 0 5px #00ff00, 0 0 10px #00ffff, 0 0 15px #00ffff;
   }
-  50% {
+  10% {
     text-shadow: 0 0 10px #00ff00, 0 0 20px #00ffff, 0 0 30px #00ffff;
   }
   100% {
