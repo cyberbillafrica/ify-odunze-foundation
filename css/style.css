@@ -26,6 +26,44 @@ a:hover {
   color: darken(var(--bs-custom-accent), 10%) !important; /* Optional hover effect */
 }
 
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.gallery-item {
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 400px; /* Set a fixed width */
+    height: 300px; /* Set a fixed height */
+    object-fit: cover; /* Ensures images fill the dimensions, cropping if necessary */
+    border-radius: 8px;
+}
+
+.gallery-item span {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
+    .gallery-item img {
+        width: 100%; /* Full width on mobile */
+        height: 300px; /* Maintain fixed height for consistency */
+        object-fit: cover;
+    }
+}
+
+
 /* Sky Blue Shades */
 .bg-sky-blue-light {
     background-color: #87CEEB; /* Light sky blue */
